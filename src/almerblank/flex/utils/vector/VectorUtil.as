@@ -48,13 +48,11 @@ package almerblank.flex.utils.vector
 		 */
 		static public function toDictionary(vector:Object, key:String = "index", weakKeys:Boolean=false):Dictionary
 		{
-			trace("key = " + key);
 			var dict:Dictionary = new Dictionary(weakKeys);
 			var item:Object;
 			for (var i:Number = 0; i < vector.length; i++)
 			{
 				item = vector[i];
-				trace("item = " + item);
 				switch (key)
 				{
 					case "index":
@@ -62,17 +60,13 @@ package almerblank.flex.utils.vector
 						break;
 					
 					default:
-						trace("Default case");
 						try
 						{
-							trace("trying to get key value");
 							var dictKey:String = item[ key ];
-							trace("item[key] = " +dictKey);
 							dict[dictKey] = item;
 						}
 						catch (e:Error)
 						{
-							trace("e = " + e.getStackTrace());
 							dict[i] = item;
 						}
 						break;
